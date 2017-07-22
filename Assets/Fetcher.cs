@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fetcher : MonoBehaviour
 {
+	public int index = -1;
+
     private Animator anim;
     private Transform hull;
 
@@ -68,6 +70,12 @@ public class Fetcher : MonoBehaviour
                 state++;
             }
         }
+
+		if (index != -1)
+		{
+			var hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+			hud.SetFetcherState(index, state);
+		}
 
         switch (state)
         {
