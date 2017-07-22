@@ -17,6 +17,11 @@ public class Fetcher : MonoBehaviour
     private Vector2 home;
     private Vector2 touchdown;
 
+    public AudioClip[] failSounds;
+    public AudioClip[] winSounds;
+
+    public UICollector collectorUI;
+
     public enum State
     {
         APPROACH,
@@ -43,8 +48,10 @@ public class Fetcher : MonoBehaviour
 		if (target.GetComponent<ClickableIncident>().m_isCorrect)
 		{
 			hud.AddScore(10);
-		}
-		else
+            GetComponent<AudioSource>().clip = winSounds[Random.Range(0, winSounds.Length)];
+            GetComponent<AudioSource>().Play();
+        }
+        else
 		{
 			hud.AddScore(-25);
 		}
@@ -53,6 +60,15 @@ public class Fetcher : MonoBehaviour
         target = null;
     }
 
+
+    void Explode()
+    {
+        collectorUI.instance = null;
+        GameObject.Destroy(gameObject);
+        GameObject.Destroy(target, 3.0f);
+        target.GetComponent<AudioSource>().clip = failSounds[Random.Range(0, failSounds.Length)];
+        target.GetComponent<AudioSource>().Play();
+    }
 
     // Update is called once per frame
     void Update ()
@@ -92,9 +108,16 @@ public class Fetcher : MonoBehaviour
 
             case State.PICKUP:
                 {
-                    if (phase == 0) anim.SetTrigger("launch");
-                    phase += Time.deltaTime / 2.0f;
-                    target.transform.SetParent(hull);
+                    if (!target.GetComponent<ClickableIncident>().m_isCorrect)
+                    {
+                        Explode();
+                    }
+                    else
+                    { 
+                        if (phase == 0) anim.SetTrigger("launch");
+                        phase += Time.deltaTime / 2.0f;
+                        target.transform.SetParent(hull);
+                    }
                     break;
                 }
 

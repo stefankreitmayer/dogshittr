@@ -58,5 +58,6 @@ public class UICollector : MonoBehaviour {
 		var radians = Random.Range(0.0f, 2 * Mathf.PI);
 		var drone = GameObject.Instantiate(m_dronePrefab, new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * Camera.main.orthographicSize * 2.0f, Quaternion.identity);
 		instance = drone.GetComponent<Fetcher>();
+        instance.collectorUI = this;
 	}
 }
