@@ -15,20 +15,21 @@ public class Fetcher : MonoBehaviour
 
     public enum State
     {
-        READY,
         APPROACH,
+        LAND,
         PICKUP,
         RETURN,
-        DONE
+        READY
     }
 
-    private State state = State.READY;
+    public State state = State.READY;
 	
     // Use this for initialization
 	void Start ()
     {
         home = transform.position;
         anim = GetComponent<Animator>();
+        target = gameObject;
     }
 
     // Update is called once per frame
@@ -47,7 +48,7 @@ public class Fetcher : MonoBehaviour
         {
             case State.APPROACH:
                 {
-                    if (phase == 0) anim.Play("Hover");
+                    if (phase == 0) anim.SetTrigger("hover");
 
                     phase += speed * Time.deltaTime;
                     float curvedPhase = Mathf.Cos(phase * Mathf.PI) / -2f + .5f;
@@ -55,17 +56,24 @@ public class Fetcher : MonoBehaviour
                     break;
                 }
 
+            case State.LAND:
+                {
+                    if (phase == 0) anim.SetTrigger("land");
+                    phase += Time.deltaTime;
+                    break;
+                }
+
             case State.PICKUP:
                 {
-                    if (phase == 0) anim.Play("pickup");
-                    phase += Time.deltaTime;
+                    if (phase == 0) anim.SetTrigger("launch");
+                    phase += Time.deltaTime / 2.0f;
                     target.transform.SetParent(transform);
-                    break;  
+                    break;
                 }
 
             case State.RETURN:
                 {
-                    if (phase == 0) anim.Play("hover");
+                    if (phase == 0) anim.SetTrigger("hover");
                     phase += speed * Time.deltaTime;
                     float curvedPhase = Mathf.Cos(phase * Mathf.PI) / -2f + .5f;
                     transform.position = Vector2.Lerp(home, target.transform.position, curvedPhase);
