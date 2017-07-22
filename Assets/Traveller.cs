@@ -10,8 +10,7 @@ public class Traveller : MonoBehaviour {
 	private float phase = 0;
 
 	void Start () {
-		nextNode = currentNode.PickBranch(null);
-		nextNode.AddBacklinksRecursively (currentNode);
+		nextNode = currentNode.PickBranch(currentNode);
 	}
 	
 	void Update () {
