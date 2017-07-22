@@ -71,12 +71,6 @@ public class Fetcher : MonoBehaviour
             }
         }
 
-		if (index != -1)
-		{
-			var hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-			hud.SetFetcherState(index, state);
-		}
-
         switch (state)
         {
             case State.APPROACH:
