@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+
 
 public class PathNode : MonoBehaviour
 {
@@ -18,14 +18,6 @@ public class PathNode : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        foreach (var branch in branchList)
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, branch.transform.position);
-        }
-    }
 
 
     public PathNode PickBranch(PathNode previous)
