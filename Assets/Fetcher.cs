@@ -36,10 +36,19 @@ public class Fetcher : MonoBehaviour
 
     void DepositPoop()
     {
-        GameObject.Destroy(target);
-        target = null;
+		//TODO: Sound
+		var hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+		if (target.GetComponent<ClickableIncident>().m_isCorrect)
+		{
+			hud.AddScore(10);
+		}
+		else
+		{
+			hud.AddScore(-25);
+		}
 
-        //TODO: Sound and Score
+		GameObject.Destroy(target);
+        target = null;
     }
 
 

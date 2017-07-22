@@ -8,6 +8,8 @@ public class HUD : MonoBehaviour {
 	public GameObject m_scoreInstance;
 	public GameObject[] m_collectorStateInstance;
 
+	private int m_score = 0;
+
 	// Use this for initialization
 	void Start () {
 		//SetScore(66);
@@ -19,9 +21,10 @@ public class HUD : MonoBehaviour {
 		
 	}
 
-	public void SetScore(int score)
+	public void AddScore(int score)
 	{
-		m_scoreInstance.GetComponent<Text>().text = "LV: " + score.ToString();
+		m_score += score;
+		m_scoreInstance.GetComponent<Text>().text = "LV: " + m_score.ToString();
 	}
 
 	public void SetFetcherState(int index, Fetcher.State state)
