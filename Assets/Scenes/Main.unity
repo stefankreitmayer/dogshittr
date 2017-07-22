@@ -420,11 +420,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114199461785180242, guid: a76087c4743ee1049a9c8f507c0c2cf3,
-        type: 2}
-      propertyPath: branchList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4550701714882734, guid: a76087c4743ee1049a9c8f507c0c2cf3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -461,11 +456,6 @@ Prefab:
       propertyPath: m_Name
       value: TravellerPath
       objectReference: {fileID: 0}
-    - target: {fileID: 114199461785180242, guid: a76087c4743ee1049a9c8f507c0c2cf3,
-        type: 2}
-      propertyPath: branchList.Array.data[0]
-      value: 
-      objectReference: {fileID: 1293784045}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a76087c4743ee1049a9c8f507c0c2cf3, type: 2}
   m_IsPrefabParent: 0
