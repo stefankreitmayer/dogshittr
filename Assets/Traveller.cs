@@ -14,8 +14,8 @@ public class Traveller : MonoBehaviour {
 	}
 	
 	void Update () {
-		phase += speed * Time.deltaTime;
-		if (phase >= 1) {
+        phase += speed * Time.deltaTime;
+        if (phase >= 1) {
 			currentNode = nextNode;
 			nextNode = currentNode.PickBranch();
 			phase = 0;
