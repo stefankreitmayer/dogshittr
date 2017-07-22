@@ -17,6 +17,9 @@ public class ClickableIncident : MonoBehaviour {
 	private ShittrUI m_ui;
 	private bool m_decided = false;
 
+    private bool m_isPoop = false;
+    private bool m_fetched = false;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -55,6 +58,20 @@ public class ClickableIncident : MonoBehaviour {
 				m_decided = true;
 			}
 		}
+        else if (m_isPoop && !m_fetched)
+        {
+            var drones = GameObject.FindGameObjectsWithTag("Collector");
+            foreach (var drone in drones)
+            {
+                var fetcher = drone.GetComponent<Fetcher>();
+                if (fetcher.state == Fetcher.State.READY)
+                {
+                    fetcher.Fetch(gameObject);
+                    m_fetched = true;
+                    break;
+                }
+            }
+        }
 	}
 
 	IEnumerator FadeSprite()
@@ -76,8 +93,9 @@ public class ClickableIncident : MonoBehaviour {
 
 		m_renderer.sprite = m_spritePoop;
 		m_isCorrect = m_ui.m_isPoop;
+        m_isPoop = m_ui.m_isPoop;
 
-		CloseScreen();
+        CloseScreen();
 	}
 
 	private void OnUIRejected(object sender, System.EventArgs e)
