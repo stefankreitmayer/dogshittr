@@ -21,6 +21,7 @@ public class ShittrUI : MonoBehaviour {
 
 	void Update()
 	{
+
 	}
 
 	public void PickPoop()

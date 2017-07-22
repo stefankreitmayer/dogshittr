@@ -8,6 +8,7 @@ public class ClickableIncident : MonoBehaviour {
 	public Sprite m_spritePoop;
 	public Sprite m_spriteNotPoop;
 	public bool m_isCorrect = false;
+	public float m_activeTime;
 
 	public static bool s_IsScreenOpen = false;
 
@@ -42,9 +43,31 @@ public class ClickableIncident : MonoBehaviour {
 		}
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
+		if (!m_decided)
+		{
+			m_activeTime -= Time.deltaTime;
+			if (m_activeTime <= 0.0f)
+			{
+				StartCoroutine(FadeSprite());
+
+				m_decided = true;
+			}
+		}
+	}
+
+	IEnumerator FadeSprite()
+	{
+		for (float i = 1; i >= 0; i -= Time.deltaTime)
+		{
+			m_renderer.color = new Color(1, 1, 1, i);
+			yield return null;
+		}
+
+		Destroy(gameObject);
+
+		yield return null;
 	}
 
 	private void OnUIAccepted(object sender, System.EventArgs e)
