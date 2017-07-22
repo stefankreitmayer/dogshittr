@@ -386,10 +386,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ba6813d09f345468d601f240b3c3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sprites:
+  m_poopSprites:
   - {fileID: 21300000, guid: 64a29237bcf78324aa0f96e726c881c5, type: 3}
   - {fileID: 21300000, guid: 32d1b23c309140141ad6af73b320b765, type: 3}
   - {fileID: 21300000, guid: acb828a7770a3154285807acbad4d9f0, type: 3}
+  m_notPoopsprites:
+  - {fileID: 21300000, guid: 6183a4917719b6b4f8a7082ba39afe42, type: 3}
+  - {fileID: 21300000, guid: 526b09ffff90ad54d834c1ca92f79db1, type: 3}
+  - {fileID: 21300000, guid: 1c501a0444e69774da3e855004cd4809, type: 3}
   m_poopImage: {fileID: 1514392710485716}
 --- !u!114 &114651349918712946
 MonoBehaviour:
@@ -710,7 +714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -30}
+  m_AnchoredPosition: {x: 0, y: -40}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224392844311687278

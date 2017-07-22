@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class ShittrUI : MonoBehaviour {
 
-	public Sprite[] m_sprites;
+	public Sprite[] m_poopSprites;
+	public Sprite[] m_notPoopsprites;
 	public GameObject m_poopImage;
+
+	private bool m_isPoop;
 
 	void Start()
 	{
@@ -19,8 +22,19 @@ public class ShittrUI : MonoBehaviour {
 
 	public void PickPoop()
 	{
-		int index = Random.Range(0, m_sprites.Length);
-		m_poopImage.GetComponent<Image>().sprite = m_sprites[index];
+		m_isPoop = Random.Range(0.0f, 100.0f) >= 50.0f;
+		Debug.Log("poop " + m_isPoop);
+
+		if (m_isPoop)
+		{
+			int index = Random.Range(0, m_poopSprites.Length);
+			m_poopImage.GetComponent<Image>().sprite = m_poopSprites[index];
+		}
+		else
+		{
+			int index = Random.Range(0, m_notPoopsprites.Length);
+			m_poopImage.GetComponent<Image>().sprite = m_notPoopsprites[index];
+		}
 	}
 
 	public void onAcceptClicked()
