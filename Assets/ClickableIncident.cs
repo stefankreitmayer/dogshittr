@@ -11,6 +11,7 @@ public class ClickableIncident : MonoBehaviour {
 	private GameObject m_screenInstance;
 	private SpriteRenderer m_renderer;
 	private ShittrUI m_ui;
+	private bool m_decided = false;
 	private bool m_isCorrect = false;
 
 	// Use this for initialization
@@ -26,12 +27,15 @@ public class ClickableIncident : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		if (m_screenInstance == null)
+		if (!m_decided &&
+			m_screenInstance == null)
 		{
 			m_screenInstance = GameObject.Instantiate(m_screen);
 			m_ui = m_screenInstance.GetComponent<ShittrUI>();
 			m_ui.OnAccepted += OnUIAccepted;
 			m_ui.OnRejected += OnUIRejected;
+
+			m_decided = true;
 		}
 	}
 
