@@ -289,6 +289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd14846f3a277144adb340450d53935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropSounds:
+  - {fileID: 8300000, guid: 67081b52d54cbf54d9e6810e80920232, type: 3}
+  - {fileID: 8300000, guid: 3659e2b562393af488c4a278eec9931d, type: 3}
   minimumTime: 5
   maximimTime: 10
   item: {fileID: 1135550501388246, guid: 018cc5050375a8844a0d0246d44af0cd, type: 2}

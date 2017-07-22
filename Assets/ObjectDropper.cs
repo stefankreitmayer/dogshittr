@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectDropper : MonoBehaviour {
-
+    public AudioClip[] dropSounds;
     public float minimumTime = 2.0f;
     public float maximimTime = 5.0f;
     public GameObject item;
@@ -25,7 +25,9 @@ public class ObjectDropper : MonoBehaviour {
         {
             timer = Random.Range(minimumTime, maximimTime);
 
-            /*var drop =*/ GameObject.Instantiate(item, transform.position, Quaternion.identity);        
+            var drop = GameObject.Instantiate(item, transform.position, Quaternion.identity);
+            drop.GetComponent<AudioSource>().clip = dropSounds[Random.Range(0, dropSounds.Length)];
+            drop.GetComponent<AudioSource>().Play();
         }
     }
 }
