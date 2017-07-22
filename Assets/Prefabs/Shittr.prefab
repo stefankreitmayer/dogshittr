@@ -386,6 +386,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ba6813d09f345468d601f240b3c3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_sprites:
+  - {fileID: 21300000, guid: 64a29237bcf78324aa0f96e726c881c5, type: 3}
+  - {fileID: 21300000, guid: 32d1b23c309140141ad6af73b320b765, type: 3}
+  - {fileID: 21300000, guid: acb828a7770a3154285807acbad4d9f0, type: 3}
+  m_poopImage: {fileID: 1514392710485716}
 --- !u!114 &114651349918712946
 MonoBehaviour:
   m_ObjectHideFlags: 1
