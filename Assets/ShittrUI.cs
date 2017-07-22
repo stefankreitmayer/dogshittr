@@ -27,8 +27,6 @@ public class ShittrUI : MonoBehaviour {
 	public void PickPoop()
 	{
 		m_isPoop = Random.Range(0.0f, 100.0f) >= 50.0f;
-		Debug.Log("poop " + m_isPoop);
-
 		if (m_isPoop)
 		{
 			int index = Random.Range(0, m_poopSprites.Length);
