@@ -7,6 +7,7 @@ public class ClickableIncident : MonoBehaviour {
 	public GameObject m_screen;
 	public Sprite m_spritePoop;
 	public Sprite m_spriteNotPoop;
+	public bool m_isCorrect = false;
 
 	public static bool s_IsScreenOpen = false;
 
@@ -14,7 +15,6 @@ public class ClickableIncident : MonoBehaviour {
 	private SpriteRenderer m_renderer;
 	private ShittrUI m_ui;
 	private bool m_decided = false;
-	private bool m_isCorrect = false;
 
 	// Use this for initialization
 	void Start()
