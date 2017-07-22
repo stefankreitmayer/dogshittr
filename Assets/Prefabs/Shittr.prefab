@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1249236517507830
 GameObject:
   m_ObjectHideFlags: 1
@@ -390,11 +390,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 64a29237bcf78324aa0f96e726c881c5, type: 3}
   - {fileID: 21300000, guid: 32d1b23c309140141ad6af73b320b765, type: 3}
   - {fileID: 21300000, guid: acb828a7770a3154285807acbad4d9f0, type: 3}
+  - {fileID: 21300000, guid: 5b84218d5a944eb4888e092d7224c169, type: 3}
+  - {fileID: 21300000, guid: a1ffa72f5287def4f89ebd1dc76f3b0a, type: 3}
+  - {fileID: 21300000, guid: 2224ae99204f1ae46aab8efcbe0f45b0, type: 3}
+  - {fileID: 21300000, guid: 203b1971d668b1d419f1dfc46f6b6b9e, type: 3}
   m_notPoopsprites:
   - {fileID: 21300000, guid: 6183a4917719b6b4f8a7082ba39afe42, type: 3}
   - {fileID: 21300000, guid: 526b09ffff90ad54d834c1ca92f79db1, type: 3}
   - {fileID: 21300000, guid: 1c501a0444e69774da3e855004cd4809, type: 3}
   m_poopImage: {fileID: 1514392710485716}
+  m_isPoop: 0
 --- !u!114 &114651349918712946
 MonoBehaviour:
   m_ObjectHideFlags: 1
