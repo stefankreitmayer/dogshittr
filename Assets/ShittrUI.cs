@@ -8,8 +8,11 @@ public class ShittrUI : MonoBehaviour {
 	public Sprite[] m_poopSprites;
 	public Sprite[] m_notPoopsprites;
 	public GameObject m_poopImage;
+	public bool m_isPoop;
 
-	private bool m_isPoop;
+	public delegate void ResultHandler(object sender, System.EventArgs e);
+	public event ResultHandler OnAccepted;
+	public event ResultHandler OnRejected;
 
 	void Start()
 	{
@@ -18,6 +21,7 @@ public class ShittrUI : MonoBehaviour {
 
 	void Update()
 	{
+
 	}
 
 	public void PickPoop()
@@ -39,14 +43,20 @@ public class ShittrUI : MonoBehaviour {
 
 	public void onAcceptClicked()
 	{
-		Debug.Log("Accepted!");
+		// PickPoop();
 
-		PickPoop();
+		if (OnAccepted != null)
+		{
+			OnAccepted(null, null);
+		}
 	}
 
 	public void onRejectClicked()
 	{
-		Debug.Log("Rejected!");
+		if (OnRejected != null)
+		{
+			OnRejected(null, null);
+		}
 	}
 
 }
