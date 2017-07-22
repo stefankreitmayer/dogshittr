@@ -82,6 +82,9 @@ public class ClickableIncident : MonoBehaviour {
 			yield return null;
 		}
 
+		var hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+		hud.AddScore(-10);
+
 		Destroy(gameObject);
 
 		yield return null;
