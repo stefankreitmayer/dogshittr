@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Traveller : MonoBehaviour {	
-	public float speed;
+	public float speed = 0.2f;
 	public PathNode currentNode;
 
 	private PathNode nextNode;
