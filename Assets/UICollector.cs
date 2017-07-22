@@ -52,6 +52,9 @@ public class UICollector : MonoBehaviour {
 
 	public void SpawnDrone()
 	{
+		var hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+		hud.AddScore(-100);
+
 		var radians = Random.Range(0.0f, 2 * Mathf.PI);
 		var drone = GameObject.Instantiate(m_dronePrefab, new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * Camera.main.orthographicSize * 2.0f, Quaternion.identity);
 		instance = drone.GetComponent<Fetcher>();
