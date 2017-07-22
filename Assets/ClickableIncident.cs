@@ -7,11 +7,14 @@ public class ClickableIncident : MonoBehaviour {
 	public GameObject m_screen;
 	public Sprite m_spritePoop;
 	public Sprite m_spriteNotPoop;
+	public bool m_isCorrect = false;
+
+	public static bool s_IsScreenOpen = false;
 
 	private GameObject m_screenInstance;
 	private SpriteRenderer m_renderer;
 	private ShittrUI m_ui;
-	private bool m_isCorrect = false;
+	private bool m_decided = false;
 
 	// Use this for initialization
 	void Start()
@@ -26,12 +29,16 @@ public class ClickableIncident : MonoBehaviour {
 
 	void OnMouseDown()
 	{
-		if (m_screenInstance == null)
+		if (!m_decided &&
+			!s_IsScreenOpen)
 		{
 			m_screenInstance = GameObject.Instantiate(m_screen);
 			m_ui = m_screenInstance.GetComponent<ShittrUI>();
 			m_ui.OnAccepted += OnUIAccepted;
 			m_ui.OnRejected += OnUIRejected;
+
+			m_decided = true;
+			s_IsScreenOpen = true;
 		}
 	}
 
@@ -73,5 +80,7 @@ public class ClickableIncident : MonoBehaviour {
 
 		Destroy(m_screenInstance);
 		m_screenInstance = null;
+
+		s_IsScreenOpen = false;
 	}
 }
