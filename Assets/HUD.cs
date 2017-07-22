@@ -14,6 +14,14 @@ public class HUD : MonoBehaviour {
 	void Start () {
 		//SetScore(66);
 		//SetFetcherState(0, Fetcher.State.APPROACH);
+
+		AddScore(200);
+
+		var collector1 = GameObject.Find("CollectorPanel/CollectorState").GetComponent<UICollector>();
+		collector1.SpawnDrone();
+
+		var collector2 = GameObject.Find("CollectorPanel/CollectorState (1)").GetComponent<UICollector>();
+		collector2.SpawnDrone();
 	}
 	
 	// Update is called once per frame
