@@ -10,14 +10,16 @@ public class Traveller : MonoBehaviour {
 	private float phase = 0;
 
 	void Start () {
-		nextNode = currentNode.PickBranch();
+		nextNode = currentNode.PickBranch(null);
+		nextNode.AddBacklinksRecursively (currentNode);
 	}
 	
 	void Update () {
 		phase += speed * Time.deltaTime;
 		if (phase >= 1) {
+			PathNode previousNode = currentNode;
 			currentNode = nextNode;
-			nextNode = currentNode.PickBranch();
+			nextNode = currentNode.PickBranch(previousNode);
 			phase = 0;
 		} else {
 			float curvedPhase = Mathf.Cos(phase * Mathf.PI) / -2f + .5f;
