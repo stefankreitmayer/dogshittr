@@ -25,7 +25,7 @@ public class ObjectDropper : MonoBehaviour {
         {
             timer = Random.Range(minimumTime, maximimTime);
 
-            var drop = GameObject.Instantiate(item, transform.position, Quaternion.identity);        
+            /*var drop =*/ GameObject.Instantiate(item, transform.position, Quaternion.identity);        
         }
     }
 }
