@@ -93,7 +93,7 @@ public class ClickableIncident : MonoBehaviour {
 
 		m_renderer.sprite = m_spritePoop;
 		m_isCorrect = m_ui.m_isPoop;
-        m_isPoop = m_ui.m_isPoop;
+        m_isPoop = true;
 
         CloseScreen();
 	}
@@ -104,6 +104,7 @@ public class ClickableIncident : MonoBehaviour {
 
 		m_renderer.sprite = m_spriteNotPoop;
 		m_isCorrect = !m_ui.m_isPoop;
+		m_isPoop = false;
 
 		CloseScreen();
 	}
