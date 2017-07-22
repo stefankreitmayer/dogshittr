@@ -15,12 +15,11 @@ public class Fetcher : MonoBehaviour
 
     public enum State
     {
-        READY,
         APPROACH,
         LAND,
         PICKUP,
         RETURN,
-        DONE
+        READY
     }
 
     public State state = State.READY;
