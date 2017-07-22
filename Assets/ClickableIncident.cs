@@ -89,8 +89,6 @@ public class ClickableIncident : MonoBehaviour {
 
 	private void OnUIAccepted(object sender, System.EventArgs e)
 	{
-		Debug.Log("Accepted!");
-
 		m_renderer.sprite = m_spritePoop;
 		m_isCorrect = m_ui.m_isPoop;
         m_isPoop = true;
@@ -100,8 +98,6 @@ public class ClickableIncident : MonoBehaviour {
 
 	private void OnUIRejected(object sender, System.EventArgs e)
 	{
-		Debug.Log("Rejected!");
-
 		m_renderer.sprite = m_spriteNotPoop;
 		m_isCorrect = !m_ui.m_isPoop;
 		m_isPoop = false;
